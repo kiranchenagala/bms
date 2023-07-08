@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: registration-service
+
+
+  datasource:
+    url: jdbc:h2:mem:registrations-db;NON_KEYWORDS=user
+    username: sa
+    password: 
+    driverClassName: org.h2.Driver
+    jpa:
+      spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console.enabled: true
+    path: /h2-console
+
+
+server:
+  port: 8081

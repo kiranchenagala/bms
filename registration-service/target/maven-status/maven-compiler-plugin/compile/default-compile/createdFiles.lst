@@ -1,0 +1,3 @@
+com/kk/bms/rs/RegistrationServiceApp.class
+com/kk/bms/rs/web/RegistrationController.class
+com/kk/bms/rs/jpa/entities/User.class
