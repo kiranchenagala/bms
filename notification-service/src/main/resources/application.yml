@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: notification-service
+
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.xml
+    enabled: false
+
+  datasource:
+    url: jdbc:h2:mem:notfication-db;NON_KEYWORDS=user
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    jpa:
+      spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console.enabled: true
+    path: /h2-console
+
+springdoc:
+  api-docs:
+    path: /api-docs
+
+  swagger-ui:
+    path: swagger-ui.html
+server:
+  port: 8082
+  servlet:
+    context-path: /api
+

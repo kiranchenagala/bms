@@ -1,0 +1,80 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--Added the entity User type-->
+    <changeSet id="0" author="kiran">
+        <createTable tableName="USER_TYPE">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="user_type" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+
+        </createTable>
+
+        <insert tableName="USER_TYPE">
+            <column name="id" valueNumeric="1"/>
+            <column name="user_type" value="movie_user"/>
+            <column name="description" value="User type for booking the movie shows"/>
+        </insert>
+
+        <insert tableName="USER_TYPE">
+            <column name="id" valueNumeric="2"/>
+            <column name="user_type" value="business_partner"/>
+            <column name="description" value="User type for partnering with ABC"/>
+        </insert>
+
+    </changeSet>
+
+    <!--Added the entity User-->
+    <changeSet id="1" author="kiran">
+        <createTable tableName="BMC_USER">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="user_type" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="email" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="phone" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="registered_time" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+            <column name="inactivated_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="kiran" id="2">
+        <insert tableName="BMC_USER">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="Kiran"/>
+            <column name="email" value="test@test.com"/>
+            <column name="phone" value="900000000"/>
+            <column name="user_type" value="movie_user"/>
+            <column name="registered_time" value="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="kiran" id="3">
+        <insert tableName="BMC_USER">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="Karthik"/>
+            <column name="email" value="test2@test.com"/>
+            <column name="phone" value="900000001"/>
+            <column name="user_type" value="business_partner"/>
+            <column name="registered_time" value="now()"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
