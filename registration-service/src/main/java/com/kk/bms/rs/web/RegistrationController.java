@@ -1,15 +1,21 @@
 package com.kk.bms.rs.web;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.kk.bms.rs.constants.ApiConstants;
+import com.kk.bms.rs.jpa.entities.User;
+import com.kk.bms.rs.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/"+ ApiConstants.API_VERSION +"/register")
 public class RegistrationController {
 
-    @GetMapping("/greet")
-    public String greet(){
-        return "Hello";
+    @Autowired
+    private UserService userService;
+    @PostMapping("/user")
+    public ResponseEntity<User> userRegistration(@RequestBody User user){
+        return new ResponseEntity<>(userService.save(user), HttpStatus.OK);
     }
 }

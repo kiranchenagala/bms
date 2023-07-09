@@ -7,8 +7,8 @@
     <artifactId>book-my-show</artifactId>
     <version>0.1.0</version>
     <modules>
-        <module>test-module</module>
         <module>registration-service</module>
+        <module>notification-service</module>
     </modules>
 
     <packaging>pom</packaging>

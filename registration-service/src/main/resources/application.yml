@@ -2,6 +2,8 @@ spring:
   application:
     name: registration-service
 
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.xml
 
   datasource:
     url: jdbc:h2:mem:registrations-db;NON_KEYWORDS=user
@@ -14,6 +16,21 @@ spring:
     console.enabled: true
     path: /h2-console
 
+springdoc:
+  api-docs:
+    path: /api-docs
 
+  swagger-ui:
+    path: swagger-ui.html
 server:
   port: 8081
+  servlet:
+    context-path: /api
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
