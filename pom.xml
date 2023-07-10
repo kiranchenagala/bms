@@ -9,6 +9,8 @@
     <modules>
         <module>registration-service</module>
         <module>notification-service</module>
+        <module>search-service</module>
+        <module>payment-service</module>
     </modules>
 
     <packaging>pom</packaging>
